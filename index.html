@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="title">Subnet Calculator</h1>
+    </header>
+
+    <main>
+      <div class="main-container">
+        <div class="netclass-selection-container">
+          <p class="inline-label">Classe</p>
+
+          <span>
+            <input type="radio" name="class" value="A" id="" checked="true" />
+            <label for="classA">A</label>
+          </span>
+
+          <span>
+            <input type="radio" name="class" value="B" id="" />
+            <label for="classB">B</label>
+          </span>
+
+          <span>
+            <input type="radio" name="class" value="C" id="" />
+            <label for="classC">C</label>
+          </span>
+        </div>
+
+        <div>
+          <p class="inline-label">Subnet mask</p>
+          <select name="subnetMasks" class="subnet-masks-select"></select>
+        </div>
+
+        <div>
+          <p class="inline-label">Indirizzo IP</p>
+          <input type="text" name="ip-address" id="ip-address-text-input" />
+        </div>
+
+        <button id="calculate-btn">Calcola</button>
+      </div>
+
+      <div>
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th>Ind. Subnet</th>
+              <th>Range Hosts</th>
+              <th>Ind. Broadcast</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+
+    <script src="./js/globalVars.js"></script>
+    <script src="./js/utilsFunctions.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
