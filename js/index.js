@@ -1,18 +1,24 @@
 onNetworkClassChange();
 netClassContainer.addEventListener("click", onNetworkClassChange);
 
+document
+  .querySelector(".main-form")
+  .addEventListener("submit", (e) => e.preventDefault());
+
 const calculate = () => {
-  const networkClass = document.querySelector('input[name="class"]:checked').value;
+  const networkClass = document.querySelector(
+    'input[name="class"]:checked'
+  ).value;
   const subnetMaskCIDR = subnetSelectElement.value;
   const networkIPAddress = ipAddressTextInput.value;
-  
-  if(!inputIsValid(networkIPAddress)) {
+
+  if (!inputIsValid(networkIPAddress)) {
     console.log("ERROR");
     const errorOverlay = document.querySelector(".error-overlay");
     errorOverlay.style.display = "block";
-    
+
     setTimeout(() => {
-      errorOverlay.style.display = "none"
+      errorOverlay.style.display = "none";
     }, 3000);
 
     return;
@@ -20,10 +26,9 @@ const calculate = () => {
 
   document.querySelector(".result-table tbody").innerHTML = "";
 
-
   console.log({ networkClass, subnetMaskCIDR, networkIPAddress });
 
-  const [firstOctet, secondOctet, thirdOctet, fourthOctet] = networkIPAddress.split(".");
+  const [firstOctet, secondOctet, thirdOctet] = networkIPAddress.split(".");
 
   let netAddress, firstAddress, lastAddress, broadcastAddress;
 
@@ -47,7 +52,12 @@ const calculate = () => {
       broadcastAddress = `${firstOctet}.${h1}.${h2}.${h3}`;
       lastAddress = `${firstOctet}.${h1}.${h2}.${h3 - 1}`;
 
-      addEntryToTableOnDOM(netAddress, firstAddress, lastAddress, broadcastAddress);
+      addEntryToTableOnDOM(
+        netAddress,
+        firstAddress,
+        lastAddress,
+        broadcastAddress
+      );
     }
   } else if (networkClass === "B") {
     let n = subnetMaskCIDR - 16;
@@ -67,7 +77,12 @@ const calculate = () => {
       broadcastAddress = `${firstOctet}.${secondOctet}.${h2}.${h3}`;
       lastAddress = `${firstOctet}.${secondOctet}.${h2}.${h3 - 1}`;
 
-      addEntryToTableOnDOM(netAddress, firstAddress, lastAddress, broadcastAddress);
+      addEntryToTableOnDOM(
+        netAddress,
+        firstAddress,
+        lastAddress,
+        broadcastAddress
+      );
     }
   } else {
     let n = subnetMaskCIDR - 24;
@@ -85,7 +100,12 @@ const calculate = () => {
       broadcastAddress = `${firstOctet}.${secondOctet}.${thirdOctet}.${h3}`;
       lastAddress = `${firstOctet}.${secondOctet}.${thirdOctet}.${h3 - 1}`;
 
-      addEntryToTableOnDOM(netAddress, firstAddress, lastAddress, broadcastAddress);
+      addEntryToTableOnDOM(
+        netAddress,
+        firstAddress,
+        lastAddress,
+        broadcastAddress
+      );
     }
   }
 };

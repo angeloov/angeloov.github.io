@@ -12,43 +12,45 @@
     <div class="error-overlay">
       <p>Error: What you entered isn't an IPv4 address</p>
     </div>
-    
+
     <header class="header">
       <h1 class="title">Subnet Calculator</h1>
     </header>
 
     <main>
       <div class="main-container">
-        <div class="netclass-selection-container">
-          <p class="inline-label">Classe</p>
+        <form class="main-form">
+          <div class="netclass-selection-container">
+            <p class="inline-label">Classe</p>
 
-          <span>
-            <input type="radio" name="class" value="A" id="" checked="true" />
-            <label for="classA">A</label>
-          </span>
+            <span>
+              <input type="radio" name="class" value="A" id="" checked="true" />
+              <label for="classA">A</label>
+            </span>
 
-          <span>
-            <input type="radio" name="class" value="B" id="" />
-            <label for="classB">B</label>
-          </span>
+            <span>
+              <input type="radio" name="class" value="B" id="" />
+              <label for="classB">B</label>
+            </span>
 
-          <span>
-            <input type="radio" name="class" value="C" id="" />
-            <label for="classC">C</label>
-          </span>
-        </div>
+            <span>
+              <input type="radio" name="class" value="C" id="" />
+              <label for="classC">C</label>
+            </span>
+          </div>
 
-        <div>
-          <p class="inline-label">Subnet mask</p>
-          <select name="subnetMasks" class="subnet-masks-select"></select>
-        </div>
+          <div>
+            <p class="inline-label">Subnet mask</p>
+            <select name="subnetMasks" class="subnet-masks-select"></select>
+          </div>
 
-        <div>
-          <p class="inline-label">Indirizzo IP</p>
-          <input type="text" name="ip-address" id="ip-address-text-input" />
-        </div>
+          <div>
+            <p class="inline-label">Indirizzo IP</p>
+            <input type="text" name="ip-address" id="ip-address-text-input" />
+          </div>
 
-        <button id="calculate-btn">Calcola</button>
+          <button id="calculate-btn">Calcola</button>
+        </form>
       </div>
 
       <div>
