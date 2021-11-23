@@ -69,3 +69,30 @@ td {
 .result-table {
   margin: 1rem;
 }
+
+@keyframes example {
+  from {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(-50%, 10%);
+  }
+}
+
+
+.error-overlay {
+  animation-name: example;
+  animation-duration: 1s;
+
+  display: none;
+  padding: .4rem 1.6rem;
+  position: absolute;
+
+  left: 50%;
+  transform: translate(-50%, 10%); 
+
+  background-color: #e74c3c;
+  border: 2px solid #c0392b;
+  color: #f3f3f3;
+  border-radius: 2.5rem;
+}

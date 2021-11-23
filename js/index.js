@@ -2,11 +2,24 @@ onNetworkClassChange();
 netClassContainer.addEventListener("click", onNetworkClassChange);
 
 const calculate = () => {
-  document.querySelector(".result-table tbody").innerHTML = "";
-
   const networkClass = document.querySelector('input[name="class"]:checked').value;
   const subnetMaskCIDR = subnetSelectElement.value;
   const networkIPAddress = ipAddressTextInput.value;
+  
+  if(!inputIsValid(networkIPAddress)) {
+    console.log("ERROR");
+    const errorOverlay = document.querySelector(".error-overlay");
+    errorOverlay.style.display = "block";
+    
+    setTimeout(() => {
+      errorOverlay.style.display = "none"
+    }, 3000);
+
+    return;
+  }
+
+  document.querySelector(".result-table tbody").innerHTML = "";
+
 
   console.log({ networkClass, subnetMaskCIDR, networkIPAddress });
 

@@ -24,6 +24,15 @@ const updateSubnetMaskInput = networkClass => {
   }
 };
 
+const inputIsValid = (s) => {
+  const regExp = /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/;
+  return regExp.test(s);
+}
+
+const showError = (err) => {
+  
+}
+
 function onNetworkClassChange() {
   const networkClass = document.querySelector('input[name="class"]:checked').value;
   updateSubnetMaskInput(networkClass);
